@@ -26,18 +26,6 @@ variable "partitioning_enabled" {
   default     = true
 }
 
-variable "enable_express" {
-  description = "Boolean flag which controls whether Express Entities are enabled."
-  type        = bool
-  default     = false
-}
-
-variable "enable_subscription_partitioning" {
-  description = "Boolean flag which controls whether to enable subscription partitioning on the Service Bus Topic."
-  type        = bool
-  default     = false
-}
-
 variable "max_size_in_megabytes" {
   description = "The maximum size of the topic in megabytes."
   type        = number
@@ -72,10 +60,4 @@ variable "duplicate_detection_history_time_window" {
   description = "The duration of the duplicate detection history."
   type        = string
   default     = "PT10M"
-}
-
-variable "enable_batched_operations" {
-  description = "Boolean flag which controls whether server-side batched operations are enabled."
-  type        = bool
-  default     = true
 }
