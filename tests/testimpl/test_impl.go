@@ -7,9 +7,10 @@ import (
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus"
+	"github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus/admin"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/launchbynttdata/lcaf-component-terratest/types"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestComposableComplete(t *testing.T, ctx types.TestContext) {
@@ -31,23 +32,19 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	}
 	busName := u.Hostname()
 
-	client, err := azservicebus.NewClient(busName, credential, nil)
+	adminClient, err := admin.NewClient(busName, credential, nil)
 	if err != nil {
 		t.Fatalf("Unable to create service bus admin client: %e\n", err)
 	}
 
-	topicName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
-
-	t.Run("CanClientSendMessage", func(t *testing.T) {
-		sender, err := client.NewSender(topicName, nil)
+	t.Run("DoesTopicExist", func(t *testing.T) {
+		topicName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
+		resp, err := adminClient.GetTopic(context.TODO(), topicName, nil)
 		if err != nil {
-			t.Fatalf("Unable to create a Sender: %e\n", err)
+			t.Fatalf("Unable to retrieve topic: %e\n", err)
 		}
-		defer sender.Close(context.TODO())
 
-		err = sender.SendMessage(context.TODO(), &azservicebus.Message{Body: []byte("Hello, World!")}, nil)
-		if err != nil {
-			t.Fatalf("Unable to send message: %e\n", err)
-		}
+		assert.Equal(t, topicName, resp.TopicName, "Expected topic name to be %s, got %s", topicName, resp.TopicName)
+		assert.Equal(t, "Active", string(*resp.Status), "Expected topic status to be Active, got %s", string(*resp.Status))
 	})
 }
