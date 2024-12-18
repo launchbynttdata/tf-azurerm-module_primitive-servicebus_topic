@@ -37,7 +37,8 @@ module "resource_group" {
 }
 
 module "servicebus_namespace" {
-  source = "git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-servicebus_namespace?ref=feature/new_module"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/servicebus_namespace/azurerm"
+  version = "~> 1.0"
 
   resource_group_name = module.resource_group.name
   name                = module.resource_names["sb_namespace"].minimal_random_suffix

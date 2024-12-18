@@ -19,7 +19,7 @@ No providers.
 |------|--------|---------|
 | <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform.registry.launch.nttdata.com/module_primitive/resource_group/azurerm | ~> 1.0 |
-| <a name="module_servicebus_namespace"></a> [servicebus\_namespace](#module\_servicebus\_namespace) | git::https://github.com/launchbynttdata/tf-azurerm-module_primitive-servicebus_namespace | feature/new_module |
+| <a name="module_servicebus_namespace"></a> [servicebus\_namespace](#module\_servicebus\_namespace) | terraform.registry.launch.nttdata.com/module_primitive/servicebus_namespace/azurerm | ~> 1.0 |
 | <a name="module_servicebus_topic"></a> [servicebus\_topic](#module\_servicebus\_topic) | ../.. | n/a |
 
 ## Resources
@@ -50,4 +50,6 @@ No resources.
 | <a name="output_id"></a> [id](#output\_id) | n/a |
 | <a name="output_name"></a> [name](#output\_name) | n/a |
 | <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
+| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | n/a |
+| <a name="output_namespace_name"></a> [namespace\_name](#output\_namespace\_name) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
