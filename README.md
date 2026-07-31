@@ -103,19 +103,13 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.77 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.117.0 |
 
 ## Modules
 
@@ -131,15 +125,15 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | The name of the Service Bus Topic. | `string` | n/a | yes |
-| <a name="input_namespace_id"></a> [namespace\_id](#input\_namespace\_id) | The ID of the Service Bus Namespace. | `string` | n/a | yes |
-| <a name="input_partitioning_enabled"></a> [partitioning\_enabled](#input\_partitioning\_enabled) | Boolean flag which controls whether to enable partitioning on the Service Bus Topic. | `bool` | `true` | no |
-| <a name="input_max_size_in_megabytes"></a> [max\_size\_in\_megabytes](#input\_max\_size\_in\_megabytes) | The maximum size of the topic in megabytes. | `number` | `1024` | no |
-| <a name="input_status"></a> [status](#input\_status) | The status of the Service Bus Topic. | `string` | `"Active"` | no |
-| <a name="input_support_ordering"></a> [support\_ordering](#input\_support\_ordering) | Boolean flag which controls whether the topic supports ordering. | `bool` | `false` | no |
 | <a name="input_auto_delete_on_idle"></a> [auto\_delete\_on\_idle](#input\_auto\_delete\_on\_idle) | The idle interval after which the topic is automatically deleted. | `string` | `"P10675199DT2H48M5.4775807S"` | no |
 | <a name="input_default_message_ttl"></a> [default\_message\_ttl](#input\_default\_message\_ttl) | The TTL of messages sent to this topic if no TTL value is set on the message itself. | `string` | `"P10675199DT2H48M5.4775807S"` | no |
 | <a name="input_duplicate_detection_history_time_window"></a> [duplicate\_detection\_history\_time\_window](#input\_duplicate\_detection\_history\_time\_window) | The duration of the duplicate detection history. | `string` | `"PT10M"` | no |
+| <a name="input_max_size_in_megabytes"></a> [max\_size\_in\_megabytes](#input\_max\_size\_in\_megabytes) | The maximum size of the topic in megabytes. | `number` | `1024` | no |
+| <a name="input_name"></a> [name](#input\_name) | The name of the Service Bus Topic. | `string` | n/a | yes |
+| <a name="input_namespace_id"></a> [namespace\_id](#input\_namespace\_id) | The ID of the Service Bus Namespace. | `string` | n/a | yes |
+| <a name="input_partitioning_enabled"></a> [partitioning\_enabled](#input\_partitioning\_enabled) | Boolean flag which controls whether to enable partitioning on the Service Bus Topic. | `bool` | `true` | no |
+| <a name="input_status"></a> [status](#input\_status) | The status of the Service Bus Topic. | `string` | `"Active"` | no |
+| <a name="input_support_ordering"></a> [support\_ordering](#input\_support\_ordering) | Boolean flag which controls whether the topic supports ordering. | `bool` | `false` | no |
 
 ## Outputs
 
@@ -147,4 +141,4 @@ No modules.
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Service Bus topic |
 | <a name="output_name"></a> [name](#output\_name) | The name of the Service Bus topic |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
