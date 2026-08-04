@@ -77,7 +77,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|---------|
+|------|------|
 | [azurerm_servicebus_topic.topic](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/servicebus_topic) | resource |
 
 ## Inputs
@@ -97,7 +97,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|---------|
+|------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | The ID of the Service Bus topic |
 | <a name="output_name"></a> [name](#output\_name) | The name of the Service Bus topic |
 <!-- END_TF_DOCS -->
