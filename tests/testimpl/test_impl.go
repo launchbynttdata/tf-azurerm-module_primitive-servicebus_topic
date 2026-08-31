@@ -25,7 +25,7 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	}
 
 	// The client requires the full hostname of the service bus
-	busEndpoint := terraform.Output(t, ctx.TerratestTerraformOptions(), "endpoint")
+	busEndpoint := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "endpoint")
 	u, err := url.Parse(busEndpoint)
 	if err != nil {
 		t.Fatalf("Unable to parse service bus endpoint: %e\n", err)
@@ -38,7 +38,7 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	}
 
 	t.Run("DoesTopicExist", func(t *testing.T) {
-		topicName := terraform.Output(t, ctx.TerratestTerraformOptions(), "name")
+		topicName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "name")
 		resp, err := adminClient.GetTopic(context.TODO(), topicName, nil)
 		if err != nil {
 			t.Fatalf("Unable to retrieve topic: %e\n", err)
